@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Drum Machine by Chris</title>
+
+    <script>
+        function play(str) {
+            // the function checks which drum was played by comparing the arguments to the keyboard keys mapped to specific drums
+            // then the function updates the display with the name of the drum
+            if (str === "q" || str === "Q") {
+            document.getElementById('display').innerText = "Heater 1";
+            } else if (str === "w" || str === "W") {
+            document.getElementById('display').innerText = "Heater 2";
+            } else if (str === "e" || str === "E") {
+            document.getElementById('display').innerText = "Heater 3";
+            } else if (str === "a" || str === "A") {
+            document.getElementById('display').innerText = "Heater 4";
+            } else if (str === "s" || str === "S") {
+            document.getElementById('display').innerText = "Clap";
+            } else if (str === "d" || str === "D") {
+            document.getElementById('display').innerText = "Open-HH";
+            } else if (str === "z" || str === "Z") {
+            document.getElementById('display').innerText = "Kick-n'-Hat";
+            } else if (str === "x" || str === "X") {
+            document.getElementById('display').innerText = "Kick";
+            } else if (str === "c" || str === "C") {
+            document.getElementById('display').innerText = "Closed-HH";
+            }
+
+            // retrieves the audio element from HTML document
+            var audio = document.getElementById(str);
+            audio.play();
+        }
+
+        // an event listener that listens for when a key is pressed, then plays the drum sound
+        window.document.onkeyup = function(event) {
+            let keystroke = event.key
+            if (keystroke === "q" || keystroke === "Q") {
+                play("Q");
+            } else if (keystroke === "w" || keystroke === "W") {
+                play("W");
+            } else if (keystroke === "e" || keystroke === "E") {
+                play("E");
+            } else if (keystroke === "a" || keystroke === "A") {
+                play("A");
+            } else if (keystroke === "s" || keystroke === "S") {
+                play("S");
+            } else if (keystroke === "d" || keystroke === "D") {
+                play("D");
+            } else if (keystroke === "z" || keystroke === "Z") {
+                play("Z");
+            } else if (keystroke === "x" || keystroke === "X") {
+                play("X");
+            } else if (keystroke === "c" || keystroke === "C") {
+                play("C");
+            }
+        }
+    </script>
+
+    
+</head>
+<body>
+    <div class="container" id="drum-machine">
+        <h1 class="text-center">Drum Machine PAW!</h1>
+        <div class="card my-3">
+            <div class="card-body">
+                <div class="text-center" id="display">The Display is Currently Empty</div>
+            </div>
+        </div>
+        <button class="drum-pad btn btn-block btn-primary" id="heater1-Q" onclick="play('Q')">Q
+            <audio class="clip" id="Q" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"></audio>
+        </button>
+        <button class="drum-pad btn btn-block btn-primary" id="heater2-W" onclick="play('W')">W
+            <audio class="clip" id="W" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"></audio>
+        </button>
+        <button class="drum-pad btn btn-block btn-primary" id="heater3-E" onclick="play('E')">E
+            <audio class="clip" id="E" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"></audio>
+        </button>
+        <button class="drum-pad btn btn-block btn-primary" id="heater4-A" onclick="play('A')">A
+            <audio class="clip" id="A" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"></audio>
+        </button>
+        <button class="drum-pad btn btn-block btn-primary" id="clap-S" onclick="play('S')">S
+            <audio class="clip" id="S" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"></audio>
+        </button>
+        <button class="drum-pad btn btn-block btn-primary" id="openHH-D" onclick="play('D')">D
+            <audio class="clip" id="D" src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"></audio>
+        </button>
+        <button class="drum-pad btn btn-block btn-primary" id="kicknhat-Z" onclick="play('Z')">Z
+            <audio class="clip" id="Z" src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"></audio>
+        </button>
+        <button class="drum-pad btn btn-block btn-primary" id="kick-X" onclick="play('X')">X
+            <audio class="clip" id="X" src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"></audio>
+        </button>
+        <button class="drum-pad btn btn-block btn-primary" id="closedHH-C" onclick="play('C')">C
+            <audio class="clip" id="C" src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"></audio>
+        </button>
+    </div>
+    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
