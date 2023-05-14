@@ -1,1 +1,2 @@
 ## [Drum Machine](https://christina11010.github.io/drum_machine/)
+This is a JavaScript project that simulates a drum machine with a graphical user interface (GUI) and audio capabilities. The project allows users to trigger specific drum sounds by pressing corresponding keys on their computer keyboard. When a user presses a key, the corresponding drum sound is played and the name of the drum is displayed on the GUI.
